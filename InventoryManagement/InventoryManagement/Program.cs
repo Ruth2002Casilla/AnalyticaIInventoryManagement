@@ -1,10 +1,30 @@
 using InventoryManagement.Components;
+using InventoryManagement.DAL;
+using InventoryManagement.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+
+var conexion = builder.Configuration.GetConnectionString("conexion");
+builder.Services.AddDbContext<Context>(options =>
+    options.UseSqlite(conexion));
+
+builder.Services.AddScoped<categoriaService>();
+builder.Services.AddScoped<productoService>();
+builder.Services.AddScoped<clienteService>();
+builder.Services.AddScoped<userService>();
+builder.Services.AddScoped<entradaService>();
+builder.Services.AddScoped<salidaService>();
+builder.Services.AddScoped<proveedorService>();
+builder.Services.AddScoped<detalleCompraService>();
+builder.Services.AddScoped<detalleVentaService>();
+builder.Services.AddScoped<compraService>();
+builder.Services.AddScoped<ventaService>();
 
 var app = builder.Build();
 
