@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GestionInventario.Models
+namespace InventoryManagement.Models
 {
     public class detalleVenta
     {
