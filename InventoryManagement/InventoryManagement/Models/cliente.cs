@@ -1,4 +1,4 @@
-﻿namespace GestionInventario.Models
+﻿namespace InventoryManagement.Models
 {
     public class cliente
     {
